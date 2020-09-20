@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NoteModalComponent } from './note-modal/note-modal.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-note',
@@ -22,7 +23,8 @@ export class NoteComponent implements OnInit {
 
   constructor(private noteService: NoteService,
     public createDialog: MatDialog,
-    private snackbar: MatSnackBar) {
+    private snackbar: MatSnackBar,
+    public translate: TranslateService) {
 
   }
 

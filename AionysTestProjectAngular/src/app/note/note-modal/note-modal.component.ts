@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Note } from 'src/models/note';
 import { INoteDialogData } from 'src/models/note-dialog-model';
 import { NoteService } from 'src/services/note.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-note-modal',
@@ -20,7 +21,8 @@ export class NoteModalComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<Note>,
     @Inject(MAT_DIALOG_DATA) public data: INoteDialogData,
     private noteService: NoteService,
-    private popUp: MatSnackBar) {
+    private popUp: MatSnackBar,
+    public translate: TranslateService) {
       this.createForm();
      }
 
@@ -49,7 +51,6 @@ export class NoteModalComponent implements OnInit {
     }
 
     if (this.note.noteId === 0) {
-      console.log("create");
       this.noteService.createNote(this.note).subscribe(
         (respondBook: Note) => {
           this.dialogRef.close();
@@ -58,7 +59,6 @@ export class NoteModalComponent implements OnInit {
         }
       );
     } else {
-      console.log("edit");
       this.noteService.editNote(this.note).subscribe(
         (respondBook: Note) => {
           this.dialogRef.close();
@@ -70,7 +70,12 @@ export class NoteModalComponent implements OnInit {
   }
 
   getContentErrorMessage() {
-    return this.formGroup.controls.content.hasError('required') ? 'Title is required' :
-      this.formGroup.controls.content.hasError('minlength') ? 'Title must be more than 3 characters' : '';
+    if (this.translate.currentLang == 'ru') {
+      return this.formGroup.controls.content.hasError('required') ? 'Поле должно быть заполнено' :
+        this.formGroup.controls.content.hasError('minlength') ? 'Поле должно содержать минимум 3 символа' : '';
+    }
+
+    return this.formGroup.controls.content.hasError('required') ? 'Content is required' :
+      this.formGroup.controls.content.hasError('minlength') ? 'Content must be more than 3 characters' : '';
   }
 }

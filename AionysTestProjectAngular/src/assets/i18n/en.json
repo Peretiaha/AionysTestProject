@@ -1,0 +1,19 @@
+{
+    "App": {
+        "language" : "English",
+        "title": "Note Manager",
+        "Edit": "Edit",
+        "Delete": "Delete",
+        "Save": "Save",
+        "Cancel": "Cancel",
+        "Yes": "Yes"
+
+    },
+    "Note": {
+        "Content": "Content"
+        
+    },
+    "DeleteModal": {
+        "SureToDelete": "Are you sure to delete this object?"
+    }
+}

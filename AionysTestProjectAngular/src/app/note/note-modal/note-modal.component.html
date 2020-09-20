@@ -6,17 +6,17 @@
         <input type="hidden" [hidden]="note.noteId">
 
         <mat-form-field>
-          <input matInput placeholder="Content" type="string" formControlName="content"
+          <input matInput placeholder='{{"Note.Content" | translate}}' type="string" formControlName="content"
             [(ngModel)]="note.content">
             <mat-error *ngIf="formGroup.controls.content.invalid">{{getContentErrorMessage()}}</mat-error>
 
         </mat-form-field>
 
       </mat-dialog-content>
-      <button mat-raised-button type="submit" (click)="submit(note)" color="primary">Save</button>
+      <button mat-raised-button type="submit" (click)="submit(note)" color="primary">{{"App.Save" | translate}}</button>
     </form>
     <div mat-dialog-actions>
-      <button mat-raised-button class="close" (click)="onCancelClick()" color="warn">Cancel</button>
+      <button mat-raised-button class="close" (click)="onCancelClick()" color="warn">{{"App.Cancel" | translate}}</button>
     </div>
   </div>
 </div>

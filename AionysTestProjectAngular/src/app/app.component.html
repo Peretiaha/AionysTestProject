@@ -1,8 +1,17 @@
-<header>
-  <div class="title">
-    <h2> Note Manager </h2>
+<mat-toolbar class="body">
+  <a class="link" routerLink="">
+    <span>{{'App.title' | translate}}</span>
+  </a>
+  <span class="spacing"></span>
+  <div class="lang">
+    <mat-label>{{'App.language' | translate}}</mat-label>
+    <mat-select #langselect (selectionChange)="translate.use(langselect.value)" class="lang-dropdown">
+      <mat-option *ngFor="let ln of translate.getLangs()" [value]="ln">
+        {{ ln }}
+      </mat-option>
+    </mat-select>
   </div>
-</header>
+</mat-toolbar>
 <div class="containers">
   <router-outlet></router-outlet>
 </div>
