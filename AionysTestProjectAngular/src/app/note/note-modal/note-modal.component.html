@@ -1,0 +1,22 @@
+<div class="container">
+  <h1 mat-dialog-title>{{data.action}}</h1>
+  <div class="container">
+    <form [formGroup]='formGroup' mat-dialog-content class="column-group">
+      <mat-dialog-content>
+        <input type="hidden" [hidden]="note.noteId">
+
+        <mat-form-field>
+          <input matInput placeholder="Content" type="string" formControlName="content"
+            [(ngModel)]="note.content">
+            <mat-error *ngIf="formGroup.controls.content.invalid">{{getContentErrorMessage()}}</mat-error>
+
+        </mat-form-field>
+
+      </mat-dialog-content>
+      <button mat-raised-button type="submit" (click)="submit(note)" color="primary">Save</button>
+    </form>
+    <div mat-dialog-actions>
+      <button mat-raised-button class="close" (click)="onCancelClick()" color="warn">Cancel</button>
+    </div>
+  </div>
+</div>

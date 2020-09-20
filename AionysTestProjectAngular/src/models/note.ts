@@ -1,5 +1,5 @@
 
-export interface INote {
-    noteId: number,
-    content: string
+export class Note {
+    noteId: number;
+    content: string;
 }
