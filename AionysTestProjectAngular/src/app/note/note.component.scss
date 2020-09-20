@@ -1,0 +1,24 @@
+table {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 15px;
+  }
+
+.notes {
+  width: 100%;
+}
+
+.note-btn {
+  width: 50%;
+  margin: 0 auto;
+}
+  
+.mat-column-delete, .mat-column-edit {
+    width: 50px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .mat-column-noteId {
+    width: 50px;
+  }
