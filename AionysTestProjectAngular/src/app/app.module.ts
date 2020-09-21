@@ -52,7 +52,7 @@ export function HttpLoaderFactory( http: HttpClient) {
     MatDialogModule,
     HttpClientModule,
     MatSnackBarModule,
-    StoreModule.forRoot({ customers: NoteReduser }),
+    StoreModule.forRoot({ notes: NoteReduser }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreRouterConnectingModule.forRoot(),
     TranslateModule.forRoot({

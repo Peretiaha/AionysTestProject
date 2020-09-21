@@ -3,10 +3,10 @@
     <span>{{'App.title' | translate}}</span>
   </a>
   <div class="lang">
-    <mat-label>{{'App.language' | translate}}</mat-label>
+    <mat-label>{{'App.language' | translate}}-</mat-label>
     <mat-select #langselect (selectionChange)="translate.use(langselect.value)" class="lang-dropdown">
-      <mat-option *ngFor="let ln of translate.getLangs()" hidden [value]="ln">
-        {{ ln }}
+      <mat-option *ngFor="let ln of translate.getLangs()" [value]="ln">
+         {{ ln }}
       </mat-option>
     </mat-select>
   </div>

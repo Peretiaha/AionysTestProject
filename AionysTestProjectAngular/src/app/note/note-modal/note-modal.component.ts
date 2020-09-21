@@ -6,6 +6,9 @@ import { Note } from 'src/models/note';
 import { INoteDialogData } from 'src/models/note-dialog-model';
 import { NoteService } from 'src/services/note.service';
 import { TranslateService } from '@ngx-translate/core';
+import {select, Store} from '@ngrx/store'; 
+import {Observable} from 'rxjs'; 
+import { NoteAdd, NoteEdit } from 'src/app/actions/note.action';
 
 @Component({
   selector: 'app-note-modal',
@@ -17,13 +20,16 @@ export class NoteModalComponent implements OnInit {
   note: Note = new Note();
   noteId: number;
   formGroup: FormGroup;
-
+  notes: Observable<Note[]>;
+  
   constructor(public dialogRef: MatDialogRef<Note>,
     @Inject(MAT_DIALOG_DATA) public data: INoteDialogData,
     private noteService: NoteService,
     private popUp: MatSnackBar,
-    public translate: TranslateService) {
+    public translate: TranslateService,
+    private store: Store<{ notes: Note[] }>) {
       this.createForm();
+      this.notes = store.pipe(select('notes'))
      }
 
   ngOnInit(): void {
@@ -52,7 +58,8 @@ export class NoteModalComponent implements OnInit {
 
     if (this.note.noteId === 0) {
       this.noteService.createNote(this.note).subscribe(
-        (respondBook: Note) => {
+        () => {
+          this.store.dispatch(new NoteAdd(note)); 
           this.dialogRef.close();
           this.popUp.open('Note created successfully!', 'Ok',
             { duration: 2000, horizontalPosition: 'end', verticalPosition: 'top' });
@@ -60,7 +67,8 @@ export class NoteModalComponent implements OnInit {
       );
     } else {
       this.noteService.editNote(this.note).subscribe(
-        (respondBook: Note) => {
+        () => {
+          this.store.dispatch(new NoteEdit(note)); 
           this.dialogRef.close();
           this.popUp.open('Note edited successfully!', 'Ok',
             { duration: 2000, horizontalPosition: 'end', verticalPosition: 'top' });

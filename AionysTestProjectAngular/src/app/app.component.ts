@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -6,15 +6,18 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   userId: number;
 
   constructor(
     public translate: TranslateService){
-      translate.addLangs(['en', 'ru']);
-      translate.setDefaultLang('en');
-      const browserLang = translate.getBrowserLang();
-      translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+      
+  }
+  ngOnInit(): void {
+    this.translate.addLangs(['en', 'ru']);
+      this.translate.setDefaultLang('en');
+      const browserLang = this.translate.getBrowserLang();
+      this.translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
   }
 
   onChange(se : any){
