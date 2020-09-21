@@ -1,4 +1,4 @@
-<div class="container">
+<div class="modal">
   <h1 mat-dialog-title>{{data.action}}</h1>
   <div class="container">
     <form [formGroup]='formGroup' mat-dialog-content class="column-group">
@@ -13,10 +13,10 @@
         </mat-form-field>
 
       </mat-dialog-content>
-      <button mat-raised-button type="submit" (click)="submit(note)" color="primary">{{"App.Save" | translate}}</button>
+      <button mat-raised-button id="submit" type="submit" (click)="submit(note)" color="primary">{{"App.Save" | translate}}</button>
     </form>
     <div mat-dialog-actions>
-      <button mat-raised-button class="close" (click)="onCancelClick()" color="warn">{{"App.Cancel" | translate}}</button>
+      <button mat-raised-button id='close' class="close" (click)="onCancelClick()" color="warn">{{"App.Cancel" | translate}}</button>
     </div>
   </div>
 </div>

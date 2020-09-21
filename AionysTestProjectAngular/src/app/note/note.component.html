@@ -1,6 +1,6 @@
 <div class="notes">
     <div class="note-btn">
-        <button mat-raised-button (click) = 'onCreate()'>
+        <button id="addBtn" mat-raised-button (click) = 'onCreate()'>
             <mat-icon>add</mat-icon>
         </button>
     </div>
@@ -33,7 +33,7 @@
         <ng-container matColumnDef="delete">
             <th mat-header-cell *matHeaderCellDef> {{ "App.Delete" | translate }} </th>
             <td mat-cell *matCellDef="let element">
-                <button mat-icon-button aria-label="Delete" (click)='onDelete(element.noteId)'>
+                <button mat-icon-button aria-label="Delete" id="deleteBtn" (click)='onDelete(element.noteId)'>
                     <mat-icon>delete</mat-icon>
                 </button>
             </td>

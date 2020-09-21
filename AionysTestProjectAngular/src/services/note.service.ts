@@ -3,7 +3,6 @@ import { from, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Note } from 'src/models/note';
 import { HttpClient } from '@angular/common/http';
-import { not } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +20,7 @@ export class NoteService {
   }
 
   deleteById(noteId: number): Observable<Note> {
-    return this.http.delete<Note>(this.apiUrl+noteId);
+    return this.http.delete<Note>(this.apiUrl + noteId);
   }
 
   createNote(note: Note) {
@@ -31,5 +30,4 @@ export class NoteService {
   editNote(note: Note) {
     return this.http.put(this.apiUrl + note.noteId, note).pipe();
   }
-
 }
