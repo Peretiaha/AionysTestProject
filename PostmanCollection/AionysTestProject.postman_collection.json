@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "9c301132-a95e-4354-bbc6-8c56ee802a44",
+		"name": "AionysTestProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetNoteById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/notes/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"notes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllNotes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/notes",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateNote",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Content\" : \"New Note\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44389/api/notes",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateNote",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Content\": \"Updated\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44389/api/notes/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"notes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteNote",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/notes/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"notes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

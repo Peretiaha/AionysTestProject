@@ -54,9 +54,16 @@ namespace AionysTestProject.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                note.NoteId = noteId;
-                _noteService.Edit(note);
-                return Ok();
+                var noteOld = _noteService.GetById(noteId);
+
+                if (noteOld != null)
+                {
+                    note.NoteId = noteId;
+                    _noteService.Edit(note);
+                    return Ok();
+                }
+
+                return BadRequest("Note with same id doesn`t exist");
             }
 
             return BadRequest();
@@ -67,8 +74,15 @@ namespace AionysTestProject.Web.Controllers
         {
             if (noteId != 0)
             {
-                _noteService.Delete(noteId);
-                return Ok();
+                var note = _noteService.GetById(noteId);
+
+                if(note != null)
+                {
+                    _noteService.Delete(noteId);
+                    return Ok();
+                }
+
+                return BadRequest("Note with same id doesn`t exist");
             }
 
             return BadRequest();

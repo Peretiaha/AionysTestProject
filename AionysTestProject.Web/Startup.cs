@@ -49,10 +49,6 @@ namespace AionysTestProject.Web
 
             app.UseHttpsRedirection();
 
-            app.UseDefaultFiles();
-
-            app.UseStaticFiles();
-
             app.UseRouting();
 
             app.UseCors(options => options
