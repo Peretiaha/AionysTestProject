@@ -15,6 +15,7 @@ How to start:
     6) Write 'ng serve --o' to start the proj
     
     To run e2e tests use command 'ng e2e --port'
+    Also go to "AionysTestProjectAngular\src\environments\environments.ts" to set your API url (change port)
 
 P.s To test API with out frontend side, possiple to use Postman Collection, they stored at 
 'PostmanCollection/AionysTestProject.postman_collection.json', to use it open Postman and 
